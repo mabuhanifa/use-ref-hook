@@ -1,12 +1,15 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import "./App.css";
 
 function App() {
   const inputRef = useRef(null);
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
   return (
     <div>
-      <div>
-        <input type="text" ref={inputRef}/>
+      <div className="main">
+        <input type="text" ref={inputRef} />
       </div>
     </div>
   );
