@@ -8,7 +8,10 @@ function App() {
     inputRef.current.focus();
   }, []);
 
-  const [names, setNames] = useState([]);
+  const [names, setNames] = useState([
+    { id: 1, name: "Jhon Steve" },
+    { id: 2, name: "Abraham Luke" },
+  ]);
 
   const onAddName = () => {
     setNames([...names, inputRef.current.value]);
@@ -17,7 +20,7 @@ function App() {
     <div className="main">
       <div>
         {names.map((name) => (
-          <div key={name}>{name}</div>
+          <div key={name.id}>{name.name}</div>
         ))}
       </div>
       <div>
