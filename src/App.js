@@ -10,16 +10,21 @@ function App() {
 
   const [names, setNames] = useState([]);
 
-  const onAddName = () => {};
+  const onAddName = () => {
+    setNames([...names, inputRef.current.value]);
+  };
   return (
-    <div>
+    <div className="main">
       <div>
         {names.map((name) => (
-          <div>{name}</div>
+          <div key={name}>{name}</div>
         ))}
       </div>
-      <div className="main">
+      <div>
         <input type="text" ref={inputRef} />
+      </div>
+      <div>
+        <button onClick={onAddName}>Add Name</button>
       </div>
     </div>
   );
