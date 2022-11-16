@@ -1,9 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { use, useEffect, useRef, useState } from "react";
 import "./App.css";
 
 function App() {
+  const res = fetch("./data.json").then((res) => res.json());
+  const data = use(res);
+  console.log(data)
   const inputRef = useRef(null);
-const id = useRef(1)
+  const id = useRef(1);
   useEffect(() => {
     inputRef.current.focus();
   }, []);
@@ -20,7 +23,9 @@ const id = useRef(1)
     <div className="main">
       <div>
         {names.map((name) => (
-          <div key={name.id}>{name.id}-{name.name}</div>
+          <div key={name.id}>
+            {name.id}-{name.name}
+          </div>
         ))}
       </div>
       <div>
@@ -28,6 +33,11 @@ const id = useRef(1)
       </div>
       <div>
         <button onClick={onAddName}>Add Name</button>
+      </div>
+      <div>
+        <div>
+          {JSON.stringify()}
+        </div>
       </div>
     </div>
   );
