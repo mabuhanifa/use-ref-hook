@@ -1,26 +1,24 @@
 import React from "react";
-
-let state;
-
-function createState(setState) {
-  if (state === undefined) {
-    state = setState;
+let value;
+function createState(initialValue) {
+  if (value === undefined) {
+    value = initialValue;
   }
   function getState(newState) {
-    state = newState;
+    value = newState;
   }
-  return [state, getState];
+  return [value, getState];
 }
 
 export default function Custom() {
-  const [state, setState] = createState("5");
+  const [state, setState] = createState(5);
   console.log(state, setState);
   return (
-    <div style={{"margin": "50px"}}> 
+    <div style={{ margin: "50px" }}>
       <div>
         {state}
-        <button>+</button>
-        <button>-</button>
+        <button onClick={() => state + 1}>+</button>
+        <button onClick={() => setState(1)}>-</button>
       </div>
     </div>
   );
