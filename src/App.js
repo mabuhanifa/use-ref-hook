@@ -1,10 +1,7 @@
-import { use, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 function App() {
-  const res = fetch("./data.json").then((res) => res.json());
-  const data = use(res);
-  console.log(data)
   const inputRef = useRef(null);
   const id = useRef(1);
   useEffect(() => {
@@ -35,9 +32,7 @@ function App() {
         <button onClick={onAddName}>Add Name</button>
       </div>
       <div>
-        <div>
-          {JSON.stringify()}
-        </div>
+        <div>{JSON.stringify()}</div>
       </div>
     </div>
   );
