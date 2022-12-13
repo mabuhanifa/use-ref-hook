@@ -13,7 +13,15 @@ function createState(setState) {
 }
 
 export default function Custom() {
-  const state = createState("5");
-  console.log(state);
-  return <div>Custom</div>;
+  const [state, setState] = createState("5");
+  console.log(state, setState);
+  return (
+    <div style={{"margin": "50px"}}> 
+      <div>
+        {state}
+        <button>+</button>
+        <button>-</button>
+      </div>
+    </div>
+  );
 }
